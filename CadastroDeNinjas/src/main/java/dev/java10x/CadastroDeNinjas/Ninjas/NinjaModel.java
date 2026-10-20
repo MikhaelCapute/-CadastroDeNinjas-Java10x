@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 /// Entity transforma uma classe em uma entidade do BD
 /// JPA - JAVA PERSISTENCE API
@@ -9,6 +12,7 @@ import jakarta.persistence.*;
 @Table(name = "tb_cadastro") // criando uma tabela no banco de dados com o nome
 public class NinjaModel {
 
+    /// ATRIBUTOS
     @Id // Adicionando ID as entidades
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Estratégia de ID nas entidade "AutoIncrement(1,2,3 ...)"
     private Long id;
@@ -16,9 +20,15 @@ public class NinjaModel {
     private String email;
     private int idade;
 
+    // @ManyToOne - um ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreing key ou chave estrangeira /// Fusão das tabela
+    private MissoesModel missoes;
+
+
+    /// CONSTRUTORES ----
     public NinjaModel() {
     }
-
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
@@ -26,6 +36,7 @@ public class NinjaModel {
     }
 
 
+    /// GETTER - SETTER ----
     public String getNome() {
         return nome;
     }
@@ -48,15 +59,5 @@ public class NinjaModel {
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    @Override
-    public String toString() {
-        return "NinjaModel{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", idade=" + idade +
-                '}';
     }
 }
