@@ -4,16 +4,17 @@ import jakarta.persistence.*;
 
 /// Entity transforma uma classe em uma entidade do BD
 /// JPA - JAVA PERSISTENCE API
+
 @Entity // Definindo que essa classe será uma entidade do BD
 @Table(name = "tb_cadastro") // criando uma tabela no banco de dados com o nome
 public class NinjaModel {
 
     @Id // Adicionando ID as entidades
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Estratégia de ID nas entidade "AutoIncrement(1,2,3 ...)"
-    Long id;
-    String nome;
-    String email;
-    int idade;
+    private Long id;
+    private String nome;
+    private String email;
+    private int idade;
 
     public NinjaModel() {
     }
@@ -47,5 +48,15 @@ public class NinjaModel {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    @Override
+    public String toString() {
+        return "NinjaModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", idade=" + idade +
+                '}';
     }
 }
