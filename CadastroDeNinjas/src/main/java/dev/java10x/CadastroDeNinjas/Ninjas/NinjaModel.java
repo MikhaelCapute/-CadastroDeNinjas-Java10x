@@ -27,14 +27,16 @@ public class NinjaModel {
     @Id // Adicionando ID as entidades
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Estratégia de ID nas entidade "AutoIncrement(1,2,3 ...)"
     private Long id;
+
     private String nome;
+
+    @Column(unique = true) // Essa coluna vai ser única. Apenas um único email pode ser cadastrado.
     private String email;
+
     private int idade;
 
     // @ManyToOne - um ninja tem uma única missão
     @ManyToOne
     @JoinColumn(name = "missoes_id") // Foreing key ou chave estrangeira /// Fusão das tabela
     private MissoesModel missoes;
-
-    private String corDoOlho;
 }
