@@ -2,14 +2,25 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 /// Entity transforma uma classe em uma entidade do BD
 /// JPA - JAVA PERSISTENCE API
-
 @Entity // Definindo que essa classe será uma entidade do BD
 @Table(name = "tb_cadastro") // criando uma tabela no banco de dados com o nome
+
+/// CONTRUTORES -------------------------------------------------
+@NoArgsConstructor // CRIANDO UM CONSTRUTOR SEM ARGUMENTOS
+@AllArgsConstructor // CRIANDO UM CONSTRUTOR COM TODOS OS ARGUMENTOS
+
+/// GETTERS & SETTERS -------------------------------------------------
+@Data // CRIANDO TODOS OS GETTERS E SETTERS
+
+
 public class NinjaModel {
 
     /// ATRIBUTOS
@@ -25,39 +36,5 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // Foreing key ou chave estrangeira /// Fusão das tabela
     private MissoesModel missoes;
 
-
-    /// CONSTRUTORES ----
-    public NinjaModel() {
-    }
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-
-    /// GETTER - SETTER ----
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+    private String corDoOlho;
 }
