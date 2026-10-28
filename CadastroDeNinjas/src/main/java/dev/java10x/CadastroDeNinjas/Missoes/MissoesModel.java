@@ -19,8 +19,13 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome_missao")
     private String nome_da_missao;
+
+    @Column(name = "rank")
     private RANK rank;
 
     @OneToMany(mappedBy = "missoes") // @OneToMany - uma missao pode ter muitos ninjas
