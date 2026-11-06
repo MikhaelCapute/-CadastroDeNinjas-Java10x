@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 // Vai mapear o arquivo do java
 
 @RestController
-@RequestMapping
+@RequestMapping()
 
 public class NinjaController {
 

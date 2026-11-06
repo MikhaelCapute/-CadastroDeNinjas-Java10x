@@ -2,8 +2,9 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping
+// LOCALHOST:8080/ <- nossa rota
+@RestController // <- define que isso é uma rota para as nossa APIs
+@RequestMapping("missoes") // <- Mapeia as APIs =  localhost:8080/missoes/{endpoint}
 
 public class MissoesController {
 
@@ -12,9 +13,13 @@ public class MissoesController {
         return "Olá bem vindo a tela principal de missões!";
     }
 
+    // GET - manda uma requisisao para mostrar as missoes
+    // Put - altera
+    // Post - cria
+    // delete - deleta
 
     //CREATE
-    @PostMapping("/criarMissoes")
+    @PostMapping("/criar")
     public String criar_missoes() {
         return "Criando Missoes";
     }
@@ -33,13 +38,13 @@ public class MissoesController {
     }
 
     // UPDATE
-    @PutMapping("/alterarMissoesID")
+    @PutMapping("/alterarID")
     public String alterar_missoes() {
         return "Alterando Missoes";
     }
 
     // DELETE
-    @DeleteMapping("/deletandoMissoes")
+    @DeleteMapping("/deletar")
     public String deletar_missoes() {
         return "Deletando Missoes";
     }
