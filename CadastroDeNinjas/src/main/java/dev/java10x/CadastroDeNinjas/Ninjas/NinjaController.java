@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 // Vai mapear o arquivo do java
 
 @RestController
-@RequestMapping()
+@RequestMapping("/ninjas")
 
 public class NinjaController {
 
@@ -23,7 +23,7 @@ public class NinjaController {
 
 
     // Mostrar ninja por ID (READ)
-    @GetMapping("/mostrarID")
+    @GetMapping("/listarID")
     public String mostrarId_Ninja(){
         return "Mostrar Ninja por ID";
 
@@ -31,7 +31,7 @@ public class NinjaController {
 
 
     // Mostrar todos os NINJAS (READ)
-    @GetMapping("/mostrar")
+    @GetMapping("/listar")
     public String mostrar_Ninja(){
         return "Mostrar todos os ninjas";
     }

@@ -26,13 +26,13 @@ public class MissoesController {
 
 
     // Read
-    @GetMapping("/missoes")
+    @GetMapping("/listar")
     public String missoes() {
         return "Todas as missoes";
     }
 
     // Read by ID
-    @GetMapping("/missoesID")
+    @GetMapping("/listarID")
     public String missoesID() {
         return "Todas as missoes por ID";
     }
@@ -44,9 +44,9 @@ public class MissoesController {
     }
 
     // DELETE
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/deletarID")
     public String deletar_missoes() {
-        return "Deletando Missoes";
+        return "Deletando Missoes por ID";
     }
 
 
