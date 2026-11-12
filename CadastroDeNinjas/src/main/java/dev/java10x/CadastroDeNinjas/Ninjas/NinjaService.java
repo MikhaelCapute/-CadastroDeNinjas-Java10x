@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /// CRIANDO UMA CAMADA DE SERVICE
 @Service // Definindo com uma anotation de camada de serviço
@@ -20,6 +21,12 @@ public class NinjaService {
     // Logica para listar todos os meus ninjas
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
+    }
+
+    // Listar ninjas por id
+    public NinjaModel listarNinjaPorId(Long id){
+        Optional<NinjaModel> ninjaPorID = ninjaRepository.findById(id);
+        return ninjaPorID.orElse(null);
     }
 
 
