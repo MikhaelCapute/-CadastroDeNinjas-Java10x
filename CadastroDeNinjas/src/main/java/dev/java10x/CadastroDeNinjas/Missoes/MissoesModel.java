@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,6 @@ import java.util.List;
 
 public class MissoesModel {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -30,6 +30,7 @@ public class MissoesModel {
     private RANK rank;
 
     @OneToMany(mappedBy = "missoes") // @OneToMany - uma missao pode ter muitos ninjas
+    @JsonIgnore //Evita o erro(loop) de serialização
     private List<NinjaModel> ninjas;
 
 }
