@@ -1,7 +1,5 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 // Vai mapear o arquivo do java
@@ -29,31 +27,28 @@ public class NinjaController {
         return ninjaService.criarNinja(ninja);
     }
 
-
     // Mostrar ninja por ID (READ)
     @GetMapping("/listar/{id}") // {id} is path variable
     public NinjaModel listarNinjasPorId(@PathVariable Long id){
         return ninjaService.listarNinjaPorId(id);
     }
 
-
     // Mostrar todos os NINJAS (READ)
     @GetMapping("/listar")
-    public List<NinjaModel> mostrar_Ninja(){
+    public List<NinjaModel> listarNinjas(){
         return ninjaService.listarNinjas();
     }
 
-
     // Altera dados dos ninjas (UPDATE)
     @PutMapping("/alterarID")
-    public String alterarId_Ninja(){
+    public String alterarPorId(){
         return "alterar ninja por ID";
     }
 
-
     // Deletar ninja (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarId_Ninja(){
-        return "Deletar ninja por Id";
+    @DeleteMapping("/deletar/{id}")
+    public String deletarNinjaPorID(@PathVariable Long id){
+        ninjaService.deletarPorId(id);
+        return "Usuario deletado com sucesso!";
     }
 }

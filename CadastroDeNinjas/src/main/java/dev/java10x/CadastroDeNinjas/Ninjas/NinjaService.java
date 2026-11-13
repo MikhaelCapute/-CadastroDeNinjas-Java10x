@@ -36,6 +36,11 @@ public class NinjaService {
         return ninjaPorID.orElse(null);
     }
 
+    // Deletar Ninja - Tem que ser um metodo VOID
+    public void deletarPorId(Long id) {
+        ninjaRepository.deleteById(id);
+    }
+
 
     //findall - busca todos de certa tabela do banco de dados (SELECT * FROM TB_CADASTRO)
     //findbyid - busca por id
