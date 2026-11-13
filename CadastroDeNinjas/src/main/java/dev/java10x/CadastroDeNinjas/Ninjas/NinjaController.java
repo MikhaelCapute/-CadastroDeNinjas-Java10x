@@ -17,7 +17,7 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    @GetMapping("/boasvindas")
+    @GetMapping
     public String boasVindas(){
         return "Essa é a minha primeira mensagem nessa rota";
     }
@@ -25,8 +25,8 @@ public class NinjaController {
     /// CRIANDO OS ENDPOINTS
     // Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public String criar_Ninja(){
-        return "Ninja Criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+        return ninjaService.criarNinja(ninja);
     }
 
 

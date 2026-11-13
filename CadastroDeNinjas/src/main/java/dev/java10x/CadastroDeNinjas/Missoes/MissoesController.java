@@ -28,8 +28,8 @@ public class MissoesController {
 
     //CREATE
     @PostMapping("/criar")
-    public String criar_missoes() {
-        return "Criando Missoes";
+    public MissoesModel criarMmissoes(@RequestBody MissoesModel missoes) {
+        return missoesService.criarMissoes(missoes);
     }
 
     // Read
@@ -39,9 +39,9 @@ public class MissoesController {
     }
 
     // Read by ID
-    @GetMapping("/listarID")
-    public String missoesID() {
-        return "Todas as missoes por ID";
+    @GetMapping("/listar/{id}")
+    public MissoesModel missoesID(@PathVariable Long id) {
+        return  missoesService.listarMissoesPorId(id);
     }
 
     // UPDATE

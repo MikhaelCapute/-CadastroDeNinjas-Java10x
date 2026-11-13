@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 /// GETTERS & SETTERS -------------------------------------------------
 @Data // CRIANDO TODOS OS GETTERS E SETTERS
 
-
 public class NinjaModel {
 
     /// ATRIBUTOS
