@@ -28,32 +28,32 @@ public class MissoesController {
 
     //CREATE
     @PostMapping("/criar")
-    public MissoesModel criarMmissoes(@RequestBody MissoesModel missoes) {
+    public MissoesModel criarMissoes(@RequestBody MissoesModel missoes) {
         return missoesService.criarMissoes(missoes);
     }
 
     // Read
     @GetMapping("/listar")
-    public List<MissoesModel> missoes() {
+    public List<MissoesModel> ListarMissoes() {
         return missoesService.listarMissoes();
     }
 
     // Read by ID
     @GetMapping("/listar/{id}")
-    public MissoesModel missoesID(@PathVariable Long id) {
+    public MissoesModel listarMissoesPorId(@PathVariable Long id) {
         return  missoesService.listarMissoesPorId(id);
     }
 
     // UPDATE
-    @PutMapping("/alterarID")
-    public String alterar_missoes() {
+    @PutMapping("/alterar/{id}")
+    public String alterar_missoes(Long id) {
         return "Alterando Missoes";
     }
 
     // DELETE
-    @DeleteMapping("/deletarID")
-    public String deletar_missoes() {
-        return "Deletando Missoes por ID";
-    }
+    @DeleteMapping("/deletar/{id}")
+    public String deletarPorId(@PathVariable Long id) {
 
+        return "Id" + id + "deletado com sucesso!";
+    }
 }

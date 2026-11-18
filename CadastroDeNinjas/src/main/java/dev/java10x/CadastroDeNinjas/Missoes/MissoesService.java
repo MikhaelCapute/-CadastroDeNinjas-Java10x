@@ -29,4 +29,10 @@ public class MissoesService {
         return missoesPorID.orElse(null);
     }
 
+
+
+    public void deletarPorId(Long id){
+        missoesRepository.deleteById(id);
+    }
+
 }

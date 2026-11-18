@@ -2,6 +2,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,10 +37,22 @@ public class NinjaService {
         return ninjaPorID.orElse(null);
     }
 
+    // Atualizar Ninja - UPDATE
+    public NinjaModel alterarPorId(Long id, NinjaModel ninjaAtualizado){
+        if (ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
+    }
+
+
     // Deletar Ninja - Tem que ser um metodo VOID
     public void deletarPorId(Long id) {
         ninjaRepository.deleteById(id);
     }
+
+
 
 
     //findall - busca todos de certa tabela do banco de dados (SELECT * FROM TB_CADASTRO)
