@@ -13,15 +13,19 @@ public class NinjaService {
 
     // injeção de dependencia, permitir o service acessar o repository
     private IninjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
     // toda vez que injeta uma dependencia, inicializa um construtor
-    public NinjaService(IninjaRepository ninjaRepository) {
+    public NinjaService(IninjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     //Criando um novo ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninjaMapped = ninjaMapper.map(ninjaDTO);
+        ninjaMapped = ninjaRepository.save(ninjaMapped);
+        return ninjaMapper.map(ninjaMapped);
     }
 
 
